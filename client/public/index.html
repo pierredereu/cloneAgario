@@ -1,0 +1,54 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+
+	<link rel="stylesheet" type="text/css" href="./css/main.css" />
+
+  <script src="build/main.bundle.js" defer></script>
+</head>
+
+<body>
+  <div class="popupMenu">
+		<article class="popupContent">
+      <h2 class="arcade">Hagra.io</h2>
+      <label for="name">Pseudo:</label>
+      <input type="text" id="name" name="name" required
+       minlength="1" maxlength="15" size="15">
+       <p></p>
+      <button class="PlayButton">Jouer</button>
+      <button class="ClassementButton">Top Ladder</button>
+      <button class="CreditsButton">Credits</button>
+		</article>
+	</div>
+  <div class="popupCredits">
+		<h2 class="arcade">Credits</h2>
+		<p>Bastien Leleu GROUPE I AKA LE FUTUR MEILLEUR BASSISTE DE FRANCE</p>
+		<p>JV PREF : BLOONS TD 6</p>
+		<p>% de la note : 100</p>
+		<p>Pierre Dereu GROUPE I AKA PIAZOR</p>
+		<p>JV PREF : MINECRAFT</p>
+		<p>% de la note : 100</p>
+		<button class="retourButton">Retour</button>
+  </div>
+  <div class="popupLadder">
+    <h2 class="arcade">Ladder</h2>
+    <section class="content">
+      <ul class="scoresContainer">
+      </ul>
+    </section>  
+    <button class="retourButton"><-</button>
+  </div>
+  <div class="popup">
+    <article class="popupContent">
+      <h2 class="arcade">死 MORT 死</h2>
+      <p class="time"></p>
+      <p class="score"></p>
+      <p>Oh le malaise t'es mort, 'fin c'est cringe...</p>
+      <button class="retourButton"><-</button>
+      <button class="RespawnButton">Respawn!</button>
+    </article>
+
+  </div>
+  <canvas id="game" width="100%" height="100%"></canvas>
+</body>
+</html>

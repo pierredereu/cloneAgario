@@ -1,0 +1,311 @@
+* {
+	box-sizing: border-box;
+}
+@font-face {
+    font-family: 'arcade_interlacedregular';
+    src: url('./fonts/arcade_i-webfont.woff2') format('woff2'),
+         url('./fonts/arcade_i-webfont.woff') format('woff'),
+		 url('./fonts/ARCADE_I.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+.arrondi{
+    border-radius: 50px;/*Identique à border-radius: 50px/50px*/
+}
+body {
+	background: white;
+	color: white;
+	padding: 50px;
+	position: relative;
+	text-align: center;
+	font-family:Consolas, Courier, monospace;
+	font-size: 20px;
+}
+a {
+	color: greenyellow;
+}
+a:hover {
+	color: green;
+}
+header h1 {
+	text-align: center;
+	margin: 0;
+}
+header nav ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: flex;
+	justify-content: center;
+	align-items: baseline;
+}
+header nav ul li {
+	padding: 20px;
+}
+button {
+	font-family:Consolas, Courier, monospace;
+	font-size:16px;
+	padding:6px 16px;
+	background-color: rgb(104, 100, 104);
+	cursor: pointer;
+	border-style: outset;
+	border-width: 3px;
+}
+button:hover {
+	background-color: #777;
+}
+.content ul.scoresContainer {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	width: 70%;
+	margin: 0 auto;
+	max-width: 600px;
+}
+.content ul.scoresContainer li {
+	display: flex;
+	align-items: baseline;
+}
+.content ul.scoresContainer li.podium {
+	font-size: 1.3em;
+	position: relative;
+}
+.content ul.scoresContainer li.podium:after {
+	content: "";
+	width: 26px;
+	height: 26px;
+	background-image: url('../images/cup.jpg');
+	background-size: contain;
+	position: absolute;
+	right: -30px;
+	top: 7px;
+}
+.content ul.scoresContainer li em {
+	opacity: .5;
+	width: 40px;
+	text-align: right;
+}
+.content ul.scoresContainer strong {
+	padding: 0 16px;
+	font-size: 1.2em;
+	flex: 1;
+	display: flex;
+	align-items: baseline
+}
+
+.content ul.scoresContainer li strong:after {
+	content: "";
+	flex: 1;
+	height: 6px;
+	margin-left: 16px;
+	background-image:
+        radial-gradient(circle at 50% 50%, white 18%, rgba(255,255,255,0) 18%);
+    background-position: left;
+    background-size: 15px 15px;
+    background-repeat: repeat-x, repeat-y;
+}
+.popup {
+	position: fixed;
+	display: none;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-color:rgba(0,0,0,.5);
+	z-index: 1;
+	backdrop-filter: blur(10px);
+}
+.popup.visible {
+	display: block;
+	animation: slideUp .4s cubic-bezier(0.165, 0.84, 0.44, 1), fadeIn .3s cubic-bezier(0.19, 1, 0.22, 1);
+	animation-fill-mode: both;
+}
+.popup .popupContent {
+	margin: 0 auto;
+	top: 50%;
+	transform: translateY(-50%);
+	background: rgb(255, 255, 255);
+	border-radius: 50px;
+	color: black;
+	margin: 0 100px;
+	position: relative;
+	padding: 10px 50px 20px;
+}
+.popupMenu {
+	position: fixed;
+	display: none;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-color:rgba(0,0,0,.5);
+	z-index: 1;
+
+	backdrop-filter: blur(10px);
+}
+.popupMenu.visible {
+	display: block;
+	animation: slideUp .4s cubic-bezier(0.165, 0.84, 0.44, 1), fadeIn .3s cubic-bezier(0.19, 1, 0.22, 1);
+	animation-fill-mode: both;
+}
+.popupMenu .popupContent {
+	margin: 0 auto;
+	top: 50%;
+	transform: translateY(-50%);
+	background: rgb(255, 255, 255);
+	border-radius: 50px;
+	color: black;
+	margin: 0 100px;
+	position: relative;
+	padding: 10px 50px 20px;
+}
+.popupMenu .popupContent label{
+	font-weight: 600;
+	font-family: 'arcade_interlacedregular', arial, sans-serif;
+}
+.popupCredits {
+	position: fixed;
+	display: none;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-color:rgba(0,0,0,.5);
+	z-index: 1;
+	backdrop-filter: blur(10px);
+}
+.popupCredits.visible {
+	display: block;
+	animation: slideUp .4s cubic-bezier(0.165, 0.84, 0.44, 1), fadeIn .3s cubic-bezier(0.19, 1, 0.22, 1);
+	animation-fill-mode: both;
+}
+.popupLadder {
+	position: fixed;
+	display: none;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-color:rgba(0,0,0,.5);
+	z-index: 1;
+	backdrop-filter: blur(10px);
+}
+.popupLadder.visible {
+	display: block;
+	animation: slideUp .4s cubic-bezier(0.165, 0.84, 0.44, 1), fadeIn .3s cubic-bezier(0.19, 1, 0.22, 1);
+	animation-fill-mode: both;
+}
+.popup .popupContent .RespawnButton {
+	position: absolute;
+	right: 46%;
+	top: 95%;
+	padding: 10px;
+	border-style: groove;
+}
+.popupMenu .popupContent .CreditsButton {
+	position: absolute;
+	right: 37%;
+	top: 80%;
+	padding: 10px;
+	border-style: groove;
+}
+.popupMenu .popupContent .PlayButton {
+	position: absolute;
+	right: 57%;
+	top: 80%;
+	padding: 10px;
+	border-style: groove;
+}
+.popupMenu .popupContent .ClassementButton {
+	position: absolute;
+	right: 46%;
+	top: 80%;
+	padding: 10px;
+	border-style: groove;
+}
+
+.popup .popupContent .retourButton {
+	position: absolute;
+	right: 93%;
+	top: 3%;
+	padding: 10px;
+	border-style: groove;
+}
+.score {
+	font-weight: 600;
+	font-family: 'arcade_interlacedregular', arial, sans-serif;
+	
+}
+.arcade {
+	font-weight: 600;
+	font-family: 'arcade_interlacedregular', arial, sans-serif;
+	
+}
+.time {
+	font-weight: 600;
+	font-family: 'arcade_interlacedregular', arial, sans-serif;
+	
+}
+footer {
+	padding-top: 30px;
+	font-size: 12px;
+	font-style: italic;
+	color: #fff6;
+}
+footer a,
+footer a:hover {
+	color: #fff6;
+}
+
+
+.is-loading {
+	position:relative;
+	min-height: 200px;
+}
+.is-loading * {
+	display: none;
+}
+.is-loading:before {
+	content: '';
+	position: absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	background-color: rgba(0,0,0,.1);
+	z-index: 1;
+}
+.is-loading:after {
+	content: '	';
+	position: absolute;
+	top:50%;
+	left:50%;
+	width: 50px;
+	height: 50px;
+	border: 1px black solid;
+	border-top-color: rgba(255,255,255,.1);
+	border-right-color: rgba(255,255,255,.3);
+	border-bottom-color: rgba(255,255,255,.6);
+	z-index: 2;
+	border-radius: 50%;
+	animation: rotate .4s linear infinite;
+	transform-origin: center;
+}
+@keyframes rotate {
+	0% {
+		transform: translate(-50%,-50%) rotate(0deg);
+	}
+	100% {
+		transform: translate(-50%,-50%) rotate(360deg);
+	}
+}
+@keyframes fadeIn{
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+@keyframes slideUp{
+	from { transform: translateY(60px); }
+	to { transform: translateY(0); }
+}
+
